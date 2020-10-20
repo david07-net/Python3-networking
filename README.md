@@ -9,6 +9,8 @@ This is a tutorial on how to connect to a single cisco switch. For this tutorial
 ### Configuration on the Cisco Device
 
 ```
+enable
+configure terminal
 hostname SW1
 ip domain-name practice.com
 enable secret cisco
@@ -24,6 +26,7 @@ login local
 exit
 write memory
 ```
+
 
 
 

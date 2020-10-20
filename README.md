@@ -27,6 +27,46 @@ exit
 write memory
 ```
 
+##  Python Script
+
+```Python
+
+# We import a module from netmiko
+
+from netmiko import ConnectHandler
+
+# Create a dictionary representing the cisco device. 
+
+iosv_l2 = {
+    'device_type': 'cisco_ios',
+    'ip': '192.168.1.11',
+    'username': 'david',
+    'password': 'cisco',
+    'port': 22,         # Default value is 22
+    'secret': 'cisco'   # Default value is ''
+}
+
+# Establish an SSH connection to the device by passing in the device dictionary.
+
+net_connect = ConnectHandler(**iosv_l2)
+
+#Execute the command to show IP address info on the switch
+
+output = net_connect.send_command('show ip int brief')
+print (output)
+
+#Execute the command to show vlan information
+
+output = net_connect.send_command('show vlan brief')
+print (output)
+
+#Execute the command to show interface trunk information
+
+output = net_connect.send_command('show interface trunk')
+print (output)
+```
+
+With a single program we are able to run multiple cisco commands and get information we need about the cisco switch. There can be more commands of course.
 
 
 
